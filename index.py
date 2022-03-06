@@ -9,7 +9,7 @@ df.head()
 
 # Design graph
 graph = networkx.from_pandas_edgelist(df, "node_1", "node_2", create_using=networkx.Graph())
-print(len(graph))
+print("Total lines: " + str(len(graph)))
 
 # Training and generate embedding
 model = DeepWalk(walk_length = 100, dimensions = 64, window_size = 5)

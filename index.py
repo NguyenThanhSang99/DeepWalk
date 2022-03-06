@@ -32,4 +32,5 @@ def plot_graph(node_num):
     plt.xlabel("Weight")
     plt.ylabel("Height")
     plt.show()
+    plt.savefig('graph.png', bbox_inches='tight')
 plot_graph(nodes)

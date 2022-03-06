@@ -1,19 +1,19 @@
-import karateclub
+from karateclub import DeepWalk
 import pandas
 import networkx
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA 
 
-df = pandas.read_csv("/data/edges.csv")
+df = pandas.read_csv("./data/edges.csv")
 df.head()
 
 # Design graph
-graph = networkx.from_pandas_edgelist(df, "n1", "n2", create_using=networkx.Graph())
+graph = networkx.from_pandas_edgelist(df, "node_1", "node_2", create_using=networkx.Graph())
 print(len(graph))
 
 # Training and generate embedding
-model = DeepWalk(walk_length = 100, demensions = 64, window_size = 5)
-model.fit(G)
+model = DeepWalk(walk_length = 100, dimensions = 64, window_size = 5)
+model.fit(graph)
 embedding = model.get_embedding()
 print(embedding.shape)
 
